@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/mayukohayashi/learningNodeJS/issues"
   },
-  "homepage": "https://github.com/mayukohayashi/learningNodeJS#readme"
+  "homepage": "https://github.com/mayukohayashi/learningNodeJS#readme",
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  }
 }
