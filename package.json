@@ -1,0 +1,19 @@
+{
+  "name": "nodeapp",
+  "version": "1.0.0",
+  "description": "learning nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayukohayashi/learningNodeJS.git"
+  },
+  "author": "mh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayukohayashi/learningNodeJS/issues"
+  },
+  "homepage": "https://github.com/mayukohayashi/learningNodeJS#readme"
+}
