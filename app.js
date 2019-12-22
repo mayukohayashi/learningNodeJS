@@ -15,6 +15,7 @@ app.use(shopRoutes);
 
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+  // keep __dirname. because no ../ => app.js is top level so..
 });
 
 app.listen(3000);
