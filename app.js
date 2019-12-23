@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+// setting what dynamic HTML template to use, where to find => views(file)
+app.set('view engine', 'pug');
+app.set('views', 'views')
+
 const adminData = require('./routes/admin.routes');
 const shopRoutes = require('./routes/shop.routes');
 
@@ -15,8 +19,8 @@ app.use('/admin', adminData.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
   // keep __dirname. because no ../ => app.js is top level so..
+  res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
 app.listen(3000);
