@@ -7,7 +7,7 @@ const app = express();
 
 // setting what dynamic HTML template to use, where to find => views(file)
 app.set('view engine', 'pug');
-app.set('views', 'views')
+app.set('views', 'views');
 
 const adminData = require('./routes/admin.routes');
 const shopRoutes = require('./routes/shop.routes');
