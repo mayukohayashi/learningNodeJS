@@ -4,7 +4,7 @@ const rootDir = require('../utils/path.util');
 
 const p = path.join(rootDir, 'data', 'products.json');
 
-const getProductsFormFile = callback => {
+const getProductsFromFile = callback => {
   fs.readFile(p, (err, fileContent) => {
     if (err) {
       callback([]);
@@ -24,7 +24,7 @@ module.exports = class Product {
 
   save() {
     this.id = Math.random().toString();
-    getProductsFormFile(products => {
+    getProductsFromFile(products => {
       products.push(this);
       fs.writeFile(p, JSON.stringify(products), err => {
         console.log(err);
@@ -33,6 +33,13 @@ module.exports = class Product {
   }
 
   static fetchAll(callback) {
-    getProductsFormFile(callback);
+    getProductsFromFile(callback);
+  }
+
+  static findById(id, callback) {
+    getProductsFromFile(products => {
+      const product = products.find(prod => prod.id === id);
+      callback(product);
+    });
   }
 };
