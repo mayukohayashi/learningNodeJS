@@ -11,4 +11,14 @@ block content
       .form-control
         label(for='title') Title
         input#title(type='text', name="title")
+      .form-control
+        label(for='imageUrl') Image URL
+        input#imageUrl(type='text', name="imageUrl")
+      .form-control
+        label(for='price') Price
+        input#prise(type='number', name="price")
+      .form-control
+        label(for='description') Description
+        textarea#description(type='text', name="description", rows="5")
+
       button.btn(type='submit') ADD
