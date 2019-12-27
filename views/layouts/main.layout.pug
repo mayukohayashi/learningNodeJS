@@ -10,7 +10,9 @@ html(lang="en")
     block styles
 
   body
+    .backdrop
     header.main-header
+      button#side-menu-toggle Menu
       nav.main-header__nav
         ul.main-header__item-list
           li.main-header__item
@@ -26,6 +28,24 @@ html(lang="en")
             a(href='/admin/add-product', class=(path === '/admin/add-product' ? 'active': '')) Add Product
           li.main-header__item
             a(href='/admin/products', class=(path === '/admin/products' ? 'active': '')) Admin Products
+
+    nav.mobile-nav
+      ul.mobile-nav__item-list
+        li.mobile-nav__item
+          a(href='/', class=(path === '/' ? 'active': '')) Shop
+        li.mobile-nav__item
+          a(href='/products', class=(path === '/shop/products' ? 'active': '')) Products
+        li.mobile-nav__item
+          a(href='/cart', class=(path === '/shop/cart' ? 'active': '')) Cart
+        li.mobile-nav__item
+          a(href='/orders', class=(path === '/shop/orders' ? 'active': '')) Orders
+
+        li.mobile-nav__item
+          a(href='/admin/add-product', class=(path === '/admin/add-product' ? 'active': '')) Add Product
+        li.mobile-nav__item
+          a(href='/admin/products', class=(path === '/admin/products' ? 'active': '')) Admin Products
+
+    script(src='/js/main.js')
 
 
     block content
