@@ -8,7 +8,7 @@ exports.getIndex = (req, res, next) => {
       path: '/'
     });
   });
-}
+};
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll(products => {
@@ -20,23 +20,29 @@ exports.getProducts = (req, res, next) => {
   });
 };
 
+exports.getProduct = (req, res, next) => {
+  const prodId = req.params.productId;
+  console.log(prodId);
+  res.redirect('/');
+};
+
 exports.getCart = (req, res, next) => {
   res.render('shop/cart', {
     path: '/cart',
     pageTitle: 'ショッピングカート'
-  })
-}
+  });
+};
 
 exports.getOrders = (req, res, next) => {
   res.render('shop/orders', {
     path: '/orders',
     pageTitle: 'Your orders'
-  })
-}
+  });
+};
 
 exports.getCheckout = (req, res, next) => {
   res.render('shop/checkout', {
     path: '/checkout',
     pageTitle: 'お支払い'
-  })
-}
+  });
+};
