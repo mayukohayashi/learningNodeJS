@@ -17,7 +17,7 @@ block content
               h2.product__price $ #{product.price}
               p.product__description #{product.description}
             .card__actions
-              a(href='/admin/edit-product', class='btn') EDIT
+              a(href=`/admin/edit-product/${product.id}?edit=true`, class='btn') EDIT
               form(action='/admin/delete-product', type='submit', method='POST')
                 button.btn DELETE
 
