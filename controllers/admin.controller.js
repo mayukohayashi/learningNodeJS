@@ -53,7 +53,7 @@ exports.postEditProduct = (req, res, next) => {
     updatedDescription
   );
   updatedProduct.save();
-  res.redirect('/admin/products')
+  res.redirect('/admin/products');
 };
 
 exports.getProducts = (req, res, next) => {
@@ -65,3 +65,7 @@ exports.getProducts = (req, res, next) => {
     });
   });
 };
+
+exports.postDeleteProduct = (req, res, next ) => {
+  const 
+}
