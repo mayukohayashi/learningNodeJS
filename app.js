@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error.controller');
-const db = require('./utils/database')
+const db = require('./utils/database');
 
 const app = express();
 
