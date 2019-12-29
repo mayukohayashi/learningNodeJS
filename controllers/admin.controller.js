@@ -41,41 +41,45 @@ exports.getProducts = (req, res, next) => {
     });
 };
 
-// exports.getEditProduct = (req, res, next) => {
-//   const editMode = req.query.edit;
-//   if (!editMode) {
-//     return res.redirect('/');
-//   }
-//   const prodId = req.params.productId;
-//   Product.findById(prodId, product => {
-//     if (!Product) {
-//       return res.redirect('/');
-//     }
-//     res.render('admin/edit-product', {
-//       pageTitle: 'EDIT PRODUCT',
-//       path: '/admin/edit-product',
-//       editing: editMode,
-//       product: product
-//     });
-//   });
-// };
+exports.getEditProduct = (req, res, next) => {
+  const editMode = req.query.edit;
+  if (!editMode) {
+    return res.redirect('/');
+  }
+  const prodId = req.params.productId;
+  Product.findById(prodId)
+    .then(product => {
+      if (!Product) {
+        return res.redirect('/');
+      }
+      res.render('admin/edit-product', {
+        pageTitle: 'EDIT PRODUCT',
+        path: '/admin/edit-product',
+        editing: editMode,
+        product: product
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
-// exports.postEditProduct = (req, res, next) => {
-//   const prodId = req.body.productId;
-//   const updatedTitle = req.body.title;
-//   const updatedImageUrl = req.body.imageUrl;
-//   const updatedPrice = req.body.price;
-//   const updatedDescription = req.body.description;
-//   const updatedProduct = new Product(
-//     prodId,
-//     updatedTitle,
-//     updatedImageUrl,
-//     updatedPrice,
-//     updatedDescription
-//   );
-//   updatedProduct.save();
-//   res.redirect('/admin/products');
-// };
+exports.postEditProduct = (req, res, next) => {
+  const prodId = req.body.productId;
+  const updatedTitle = req.body.title;
+  const updatedImageUrl = req.body.imageUrl;
+  const updatedPrice = req.body.price;
+  const updatedDescription = req.body.description;
+  const updatedProduct = new Product(
+    prodId,
+    updatedTitle,
+    updatedImageUrl,
+    updatedPrice,
+    updatedDescription
+  );
+  updatedProduct.save();
+  res.redirect('/admin/products');
+};
 
 // exports.postDeleteProduct = (req, res, next) => {
 //   const prodId = req.body.productId;
