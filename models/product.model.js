@@ -6,6 +6,20 @@ const Cart = require('./cart.model');
 
 const p = path.join(rootDir, 'data', 'products.json');
 
+const mongoConnect = require('../utils/database')
+class Product {
+  constructor(title, price, description, imageUrl) {
+    this.title = title;
+    this.price = price;
+    this.description = description;
+    this.imageUrl = imageUrl;
+  }
+
+  save() {
+
+  }
+}
+
 const getProductsFromFile = callback => {
   fs.readFile(p, (err, fileContent) => {
     if (err) {
@@ -69,3 +83,6 @@ module.exports = class Product {
     });
   }
 };
+
+
+module.exports Product;
