@@ -27,6 +27,20 @@ exports.postAddProduct = (req, res, next) => {
     });
 };
 
+exports.getProducts = (req, res, next) => {
+  Product.fetchAll()
+    .then(products => {
+      res.render('admin/products', {
+        prods: products,
+        pageTitle: 'All Products for admin',
+        path: '/admin/products'
+      });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 // exports.getEditProduct = (req, res, next) => {
 //   const editMode = req.query.edit;
 //   if (!editMode) {
@@ -61,16 +75,6 @@ exports.postAddProduct = (req, res, next) => {
 //   );
 //   updatedProduct.save();
 //   res.redirect('/admin/products');
-// };
-
-// exports.getProducts = (req, res, next) => {
-//   Product.fetchAll(products => {
-//     res.render('admin/products', {
-//       prods: products,
-//       pageTitle: 'All Products for admin',
-//       path: '/admin/products'
-//     });
-//   });
 // };
 
 // exports.postDeleteProduct = (req, res, next) => {
