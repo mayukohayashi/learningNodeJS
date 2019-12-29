@@ -1,12 +1,4 @@
-const fs = require('fs');
-const path = require('path');
-const rootDir = require('../utils/path.util');
-
-const Cart = require('./cart.model');
-
-const p = path.join(rootDir, 'data', 'products.json');
-
-const mongoConnect = require('../utils/database')
+const getDb = require('../utils/database').getDb;
 class Product {
   constructor(title, price, description, imageUrl) {
     this.title = title;
