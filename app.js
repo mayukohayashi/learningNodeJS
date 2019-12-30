@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const errorController = require('./controllers/error.controller');
 const mongoConnect = require('./utils/database').mongoConnect;
 
+const User = require('./models/user.model');
+
 const app = express();
 
 // setting what dynamic HTML template to use, where to find => views(file)
@@ -19,12 +21,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-  // UserFindById(1)
-  // .then(user => {
-  //   req.user = user;
-  //   next();
-  // })
-  // .catch(err => console.log(err));
+  User.findById('5e09b790a121816a9fd66015')
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
   next();
 });
 
