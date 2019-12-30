@@ -52,7 +52,7 @@ exports.getEditProduct = (req, res, next) => {
   const prodId = req.params.productId;
   Product.findById(prodId)
     .then(product => {
-      if (!Product) {
+      if (!product) {
         return res.redirect('/');
       }
       res.render('admin/edit-product', {
