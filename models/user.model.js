@@ -17,9 +17,9 @@ class User {
   }
 
   addToCart(product) {
-    const cartProduct = this.cart.items.findIndex(cp => {
-      return cp.productId === product._id;
-    });
+    // const cartProduct = this.cart.items.findIndex(cp => {
+    //   return cp.productId === product._id;
+    // });
     const updatedCart = {
       items: [{ productId: new ObjectId(product._id), quantity: 1 }]
     };
