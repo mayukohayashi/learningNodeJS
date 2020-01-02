@@ -22,7 +22,7 @@ block content
         textarea#description(type='text', name="description", rows="5") #{editing ? product.description : '商品説明'}
 
       if editing
-        input(type='hidden', value=`${product.id}`, name="productId")
+        input(type='hidden', value=`${product._id}`, name="productId")
         button.btn(type='submit') EDIT
 
       else
